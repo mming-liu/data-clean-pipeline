@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+
+# 编辑器 / 系统
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# 运行时产物（python clean.py --demo 可完整重建）
+raw/*
+out/*
+!raw/.gitkeep
+!out/.gitkeep
+
+# 客户口径副本与临时交付目录
+rules.json
+试跑/
+交付_*/

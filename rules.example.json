@@ -1,0 +1,89 @@
+{
+  "_说明": "本文件是清洗规则的完整示例。改这里不需要动代码；未写的字段沿用内置默认值。",
+  "config": {
+    "date_columns": ["order_date"],
+    "int_columns": ["qty"],
+    "float_columns": ["unit_price", "amount"],
+    "phone_columns": ["customer_phone"],
+    "enum_maps": {
+      "status": {
+        "已支付": "已支付",
+        "paid": "已支付",
+        "PAID": "已支付",
+        "已完成": "已支付",
+        "待支付": "待支付",
+        "未支付": "待支付",
+        "pending": "待支付",
+        "已取消": "已取消",
+        "取消": "已取消",
+        "cancel": "已取消",
+        "cancelled": "已取消",
+        "退款": "退款",
+        "已退款": "退款",
+        "refund": "退款"
+      },
+      "region": {
+        "华东": "华东",
+        "华东区": "华东",
+        "华 东": "华东",
+        "华北": "华北",
+        "华北区": "华北",
+        "华南": "华南",
+        "华南区": "华南",
+        "西南": "西南",
+        "西南区": "西南",
+        "华中": "华中",
+        "华中区": "华中"
+      },
+      "category": {
+        "办公耗材": "办公耗材",
+        "办公耗材类": "办公耗材",
+        "数码配件": "数码配件",
+        "数码配件类": "数码配件",
+        "清洁用品": "清洁用品",
+        "清洁用品类": "清洁用品",
+        "包装材料": "包装材料",
+        "包装材料类": "包装材料"
+      },
+      "channel": {
+        "官网": "官网",
+        "自营商城": "官网",
+        "天猫": "天猫",
+        "天猫旗舰店": "天猫",
+        "京东": "京东",
+        "京东自营": "京东",
+        "线下门店": "线下门店",
+        "门店": "线下门店",
+        "小程序": "小程序"
+      }
+    },
+    "ranges": {
+      "qty": [1, 5000],
+      "unit_price": [0.01, 100000],
+      "amount": [0, 1000000]
+    },
+    "missing": {
+      "qty": "median",
+      "unit_price": "median",
+      "region": "mode",
+      "category": "mode",
+      "channel": "mode",
+      "status": "default:待支付",
+      "order_date": "mode",
+      "customer_phone": "keep"
+    },
+    "derive": {
+      "amount": "qty * unit_price"
+    },
+    "dedupe": {
+      "keys": ["order_id"],
+      "keep": "most_complete"
+    },
+    "outliers": {
+      "columns": ["amount"],
+      "iqr_factor": 3.0,
+      "action": "flag"
+    },
+    "required": ["order_id", "order_date", "qty", "unit_price"]
+  }
+}
