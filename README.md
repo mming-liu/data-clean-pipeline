@@ -203,4 +203,20 @@ data-clean-pipeline/
 
 ---
 
+## 八、同系列仓库（可串成一条链路）
+
+| 仓库 | 作用 |
+| --- | --- |
+| [py-automation-kit](https://github.com/mming-liu/py-automation-kit) | 文件与接口层：批量整理、多表合并、接口同步，产出规范 CSV |
+| **data-clean-pipeline**（本仓库） | 数据层：脏表 → 标准数据集，逐格留痕可追溯 |
+| [offline-analytics-report](https://github.com/mming-liu/offline-analytics-report) | 报表层：标准数据集 → 经营复盘报表与结论 |
+
+本仓库产出的 `out/clean_dataset.csv` 可直接作为项目三的输入：
+
+```bash
+python ../offline-analytics-report/analyze.py --input out/clean_dataset.csv
+```
+
+---
+
 维护：需求分析师 + 测试与开发工程师 轻量化协作 · 开工前对齐规则，交付时逐条可核
