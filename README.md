@@ -219,6 +219,8 @@ data-clean-pipeline/
 python ../offline-analytics-report/analyze.py --input out/clean_dataset.csv
 ```
 
+**汇总演示页（一页看全三个项目）**：https://mming-liu.github.io/bid-demo-overview/ —— 三张实拍截图、硬指标、服务编号对照与现场验证命令。
+
 ---
 
 维护：需求分析师 + 测试与开发工程师 轻量化协作 · 开工前对齐规则，交付时逐条可核
