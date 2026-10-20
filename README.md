@@ -139,7 +139,7 @@ python -c "import json;d=json.load(open('out\\stats.json',encoding='utf-8'));pri
 | `profile_before.json` / `profile_after.json` | 清洗前后数据体检快照 |
 | `stats.json` | 机器可读的处理统计 |
 
-demo 数据实际结果：**302 行 → 交付 260 行**（去重 34、剔除 8），修复 **1323** 个单元格，标记 6 条异常待复核。所有数字在报告里可逐条下钻到行。
+demo 数据实际结果：**302 行 → 交付 260 行**（去重 34、剔除 8），修复 **1323** 个单元格，标记 4 条异常待复核（IQR 超界，只标不删）。所有数字在报告里可逐条下钻到行。
 
 ## 二、处理能力
 
@@ -173,7 +173,7 @@ python clean.py --input raw/orders_dirty.csv --rules rules.json --out-dir 交付
 
 可配置项：类型化字段清单、枚举映射表、缺失填充策略、派生表达式、去重键与保留策略、异常检测参数、业务区间、必填约束。
 
-**这也是投标里最实用的一点**：开工前把 `profile_before.json` 发给客户，逐条确认「这个空值填什么、这个异常值算不算数」，规则落定后再跑，避免返工扯皮。
+**这也是接单时最实用的一点**：开工前把 `profile_before.json` 发给客户，逐条确认「这个空值填什么、这个异常值算不算数」，规则落定后再跑，避免返工扯皮。
 
 ## 五、目录结构
 
@@ -219,7 +219,7 @@ data-clean-pipeline/
 python ../offline-analytics-report/analyze.py --input out/clean_dataset.csv
 ```
 
-**汇总演示页（一页看全三个项目）**：https://mming-liu.github.io/bid-demo-overview/ —— 三张实拍截图、硬指标、服务编号对照与现场验证命令。
+**汇总演示页（一页看全三个项目）**：https://mming-liu.github.io/demo-overview/ —— 三张实拍截图、硬指标、服务编号对照与现场验证命令。
 
 ---
 
