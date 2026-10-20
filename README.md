@@ -10,6 +10,8 @@
 
 ![清洗报告](docs/preview.png)
 
+👉 **[在线打开真 HTML 清洗报告](https://mming-liu.github.io/data-clean-pipeline/)** — 可逐节翻阅、可直接打印 PDF，与截图同源，由项目自身生成
+
 ---
 
 ## 零、操作步骤（照着敲，约 3 分钟）
